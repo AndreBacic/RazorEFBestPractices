@@ -8,3 +8,17 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<div>
+    <h2>People</h2>
+    <ul>
+        @foreach (var person in Model.People)
+        {
+            <li>
+                <a href="@Url.Action("Details", "People", new { id = person.Id })">
+                    @Html.DisplayFor(modelItem => person.FirstName) @Html.DisplayFor(modelItem => person.LastName)
+                </a>
+            </li>
+        }
+     </ul>
+</div>

@@ -25,7 +25,7 @@
           "Description": "{{lorem(1, \"paragraphs\")}}",
           "StartDate": "{{date()}}",
           "EndDate": "{{date()}}",
-          "Priority": "{{integer(0, 3)}}"
+          "Priority": "{{integer(1, 4)}}"
         }
       ]
     }
