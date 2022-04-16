@@ -23,5 +23,7 @@ namespace EFDataAccess.Models
         public int Priority { get; set; }
 
         public List<Person> People { get; set; } = new();
+
+        // TODO: Add many random id pairs in PersonTask table
     }
 }

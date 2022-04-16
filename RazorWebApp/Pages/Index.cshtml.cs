@@ -20,14 +20,14 @@ namespace RazorWebApp.Pages
             _db = db;
         }
 
-        public void OnGet(int age = 0)
+        public void OnGet(int minAge = 0, int maxAge = 150)
         {
             LoadSampleData();
 
             People = _db.People
                 .Include(p => p.Address)
                 .Include(p => p.Emails)
-                .Where(p => p.Age > age)
+                .Where(p => p.Age >= minAge && p.Age <= maxAge)
                 .ToList();
         }
         
@@ -39,6 +39,17 @@ namespace RazorWebApp.Pages
                 var people = JsonSerializer.Deserialize<List<Person>>(file);
                 _db.AddRange(people);
                 _db.SaveChanges();
+                
+                //// Add 1-5 people to each project
+                //var allPeople = _db.People.ToList();
+                //foreach (var p in _db.Tasks)
+                //{
+                //    int numPeople = new Random().Next(1, 5);
+
+                //    var tasks = allPeople.OrderBy(x => Guid.NewGuid()).Take(numPeople).ToList();
+                //    p.People.AddRange(tasks);
+                //}
+                //_db.SaveChanges();
             }
         }
     }

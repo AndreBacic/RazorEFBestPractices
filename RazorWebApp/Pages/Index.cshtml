@@ -6,19 +6,40 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h2>Select min and max age:</h2>
+    <form>
+        <div class="form-group">
+            <label for="minAge">Min age:</label>
+            <input type="number" class="form-control" id="minAge" name="minAge" min="0" max="100" value="0">
+        </div>
+        <div class="form-group">
+            <label for="maxAge">Max age:</label>
+            <input type="number" class="form-control" id="maxAge" name="maxAge" min="0" max="100" value="100">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 </div>
 
 <div>
     <h2>People</h2>
-    <ul>
-        @foreach (var person in Model.People)
-        {
-            <li>
-                <a href="@Url.Action("Details", "People", new { id = person.Id })">
-                    @Html.DisplayFor(modelItem => person.FirstName) @Html.DisplayFor(modelItem => person.LastName)
-                </a>
-            </li>
-        }
-     </ul>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Primary Email</th>
+                <th>Address</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var person in Model.People) {
+                <tr>
+                    <td>@person.FirstName @person.LastName</td>
+                    <td>@person.Emails.FirstOrDefault()?.EmailAddress</td>
+                    <td>@person.Address.Street &nbsp;&nbsp;&nbsp;@person.Address.City, @person.Address.State &nbsp;@person.Address.ZipCode</td>
+                    <td>@person.Age</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
