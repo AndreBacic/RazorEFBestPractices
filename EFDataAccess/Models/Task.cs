@@ -22,6 +22,6 @@ namespace EFDataAccess.Models
         [Required]
         public int Priority { get; set; }
 
-        // TODO: Have List<People> for M:M relationship
+        public List<Person> People { get; set; } = new();
     }
 }
