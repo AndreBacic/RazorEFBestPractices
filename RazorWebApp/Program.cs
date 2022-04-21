@@ -1,7 +1,5 @@
 using EFDataAccess.DataAccess;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using RazorWebApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,10 +11,6 @@ builder.Services.AddDbContext<PeopleContext>(options =>
 });
 // Add services to the container.
 builder.Services.AddRazorPages();
-
-builder.Services.AddDbContext<RazorWebAppContext>(options =>
-
-    options.UseSqlServer(builder.Configuration.GetConnectionString("RazorWebAppContext") ?? throw new InvalidOperationException("Connection string 'RazorWebAppContext' not found.")));
 
 var app = builder.Build();
 
