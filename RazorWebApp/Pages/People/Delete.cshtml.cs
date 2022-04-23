@@ -20,7 +20,7 @@ namespace RazorWebApp.Pages.People
             _db = context;
         }
 
-        [BindProperty]
+        [BindProperty(SupportsGet = true)]
         public Person Person { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)

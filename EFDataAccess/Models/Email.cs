@@ -12,7 +12,8 @@ namespace EFDataAccess.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "Email Address")]
         [MaxLength(200)]
-        public string EmailAddress { get; set; }
+        public string? EmailAddress { get; set; }
     }
 }

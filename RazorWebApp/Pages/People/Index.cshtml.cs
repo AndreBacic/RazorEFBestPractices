@@ -20,11 +20,11 @@ namespace RazorWebApp.Pages.People
             _db = context;
         }
 
-        public IList<Person> Person { get;set; }
+        public IList<Person> Person { get; set; }
 
-        public async void OnGetAsync()
+        public void OnGetAsync()
         {
-            Person = await _db.People.ToListAsync();
+            Person = _db.People.ToList();
         }
     }
 }

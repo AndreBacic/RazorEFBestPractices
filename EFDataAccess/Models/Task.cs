@@ -12,18 +12,18 @@ namespace EFDataAccess.Models
         public int Id { get; set; }
         [Required]
         [MaxLength(255)]
-        public string Title { get; set; }
+        public string? Title { get; set; }
         [Required]
         [MaxLength(1023)]
-        public string Description { get; set; }
+        public string? Description { get; set; }
         [Required]
+        [Display(Name = "Start Date")]
         public DateTime StartDate { get; set; }
+        [Display(Name = "End Date")]
         public DateTime EndDate { get; set; }
         [Required]
         public int Priority { get; set; }
 
         public List<Person> People { get; set; } = new();
-
-        // TODO: Add many random id pairs in PersonTask table
     }
 }

@@ -44,6 +44,11 @@ namespace RazorWebApp.Pages.People
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+            var errors = ModelState
+                .Where(x => x.Value.Errors.Count > 0)
+                .Select(x => new { x.Key, x.Value.Errors })
+                .ToArray();
+            
             if (!ModelState.IsValid)
             {
                 return Page();
