@@ -36,7 +36,14 @@
                 <tr>
                     <td><a href="People/Details?id=@person.Id">@person.FirstName @person.LastName</a></td>
                     <td>@person.Emails.FirstOrDefault()?.EmailAddress</td>
-                    <td>@person.Address.Street &nbsp;&nbsp;&nbsp;@person.Address.City, @person.Address.State &nbsp;@person.Address.ZipCode</td>
+                    @if (person.Address is not null)
+                    {
+                        <td>@person.Address.Street &nbsp;&nbsp;&nbsp;@person.Address.City, @person.Address.State &nbsp;@person.Address.ZipCode</td>
+                    }
+                    else
+                    {
+                        <td>{No Address}</td>
+                    }
                     <td>@person.Age</td>
                 </tr>
             }

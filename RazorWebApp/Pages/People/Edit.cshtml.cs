@@ -44,10 +44,12 @@ namespace RazorWebApp.Pages.People
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            var errors = ModelState
-                .Where(x => x.Value.Errors.Count > 0)
-                .Select(x => new { x.Key, x.Value.Errors })
-                .ToArray();
+            // Used in development to figure out why the modelstate was invalid
+            // (It turns out that nested objects [not lists] must be nullable or included in the modelstate)
+            //var errors = ModelState
+            //    .Where(x => x.Value.Errors.Count > 0)
+            //    .Select(x => new { x.Key, x.Value.Errors })
+            //    .ToArray();
             
             if (!ModelState.IsValid)
             {
