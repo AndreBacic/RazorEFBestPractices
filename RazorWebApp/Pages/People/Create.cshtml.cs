@@ -1,13 +1,5 @@
 ﻿#nullable disable
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using EFDataAccess.Models;
-using EFDataAccess.DataAccess;
 using RazorWebApp.Models;
 
 namespace RazorWebApp.Pages.People
@@ -42,7 +34,7 @@ namespace RazorWebApp.Pages.People
             person.Id = Person.Id;
             person.FirstName = Person.FirstName;
             person.LastName = Person.LastName;
-            person.Age = Person.Age;            
+            person.Age = Person.Age;
 
             _db.People.Add(person);
             await _db.SaveChangesAsync();

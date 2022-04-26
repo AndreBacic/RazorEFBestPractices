@@ -1,9 +1,4 @@
-﻿using EFDataAccess.DataAccess;
-using EFDataAccess.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace RazorWebApp.Pages
 {
@@ -30,7 +25,7 @@ namespace RazorWebApp.Pages
                 .Where(p => p.Age >= minAge && p.Age <= maxAge)
                 .ToList();
         }
-        
+
         private void LoadSampleData()
         {
             if (_db.People.Count() == 0)
@@ -39,7 +34,7 @@ namespace RazorWebApp.Pages
                 var people = JsonSerializer.Deserialize<List<Person>>(file);
                 _db.AddRange(people);
                 _db.SaveChanges();
-                
+
                 //// Add 1-5 people to each project
                 //var allPeople = _db.People.ToList();
                 //foreach (var p in _db.Tasks)

@@ -1,14 +1,5 @@
 ﻿#nullable disable
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using EFDataAccess.Models;
-using EFDataAccess.DataAccess;
 
 namespace RazorWebApp.Pages.People
 {
@@ -50,7 +41,7 @@ namespace RazorWebApp.Pages.People
             //    .Where(x => x.Value.Errors.Count > 0)
             //    .Select(x => new { x.Key, x.Value.Errors })
             //    .ToArray();
-            
+
             if (!ModelState.IsValid)
             {
                 return Page();
